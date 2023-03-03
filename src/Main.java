@@ -6,12 +6,12 @@ public class Main {
         Book onegin = new Book("Евгений Онегин", pushkin, 1833);
         Book masterIMargarita = new Book("Мастер и Маргарита", bulgakov, 1928);
 
-        onegin.printInfo();
-        masterIMargarita.printInfo();
+        System.out.println(onegin);
+        System.out.println(masterIMargarita);
 
         masterIMargarita.setPublishingYear(1940);
 
-        masterIMargarita.printInfo();
+        System.out.println(masterIMargarita);
 
         //////////////////////////////////////////////////////////
 
@@ -52,7 +52,7 @@ public class Main {
         library.changePublishingYearByTitle("Преступление и наказание", 1871);
 
         System.out.println();
-        library.printBooksInLibrary();
+        System.out.println(library);
     }
 
     // Для задачи среднего уровня
