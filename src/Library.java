@@ -1,8 +1,32 @@
+import java.util.Arrays;
+
 public class Library {
     private final Book[] arr;
 
     public Library(int arraySize) {
         this.arr = new Book[arraySize];
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder out = new StringBuilder("Library:\n");
+        for (int i = 0; i < arr.length && arr[i] != null; i++) {
+            out.append(arr[i].toString()).append("\n");
+        }
+        return out.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Library library = (Library) o;
+        return Arrays.equals(arr, library.arr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(arr);
     }
 
     public void addBookToLibrary(Book book) {
@@ -12,15 +36,6 @@ public class Library {
                 break;
             } else if (i == arr.length - 1) {
                 System.out.println("\nМесто в библиотеке кончилось!\n");
-            }
-        }
-    }
-
-    public void printBooksInLibrary() {
-        for (Book book : arr) {
-            if (book != null) {
-                System.out.println(book.getAuthor().getFirstName() + " " + book.getAuthor().getLastName() +
-                        ": " + book.getTitle() + ": " + book.getPublishingYear());
             }
         }
     }
